@@ -1,0 +1,11 @@
+:root {
+  --loaded-message: 'css loaded :)'
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body::after{
+  content: var(--loaded-message);
+}
