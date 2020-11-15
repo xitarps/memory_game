@@ -22,7 +22,7 @@ body {
   font-size: 20px;
   color: rgb(255, 255, 255);
   font-weight: bold;
-  text-shadow: 1px 1px 2px black;
+  text-shadow: 3px 3px 5px black;
 }
 .memory-game {
   display: flex;
@@ -51,6 +51,7 @@ body {
   transition: transform 0.3s;
 }
 .card img {
+  filter: drop-shadow(8px 8px 3px #222);
 }
 .card-front {
   transform: rotateY(180deg);
@@ -58,6 +59,7 @@ body {
 .card.flip {
   transform: rotateY(180deg);
 }
+
 
 @media only screen and (min-width: 600px){
   .memory-game {

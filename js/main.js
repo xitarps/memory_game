@@ -98,6 +98,10 @@ function rebuildDecks(){
   gameCards = []
   cards1 = [...cardBase];
   cards2 = [...cardBase];
+  firstCard = null;
+  secondCard = null;
+  domCards = [];
+  hasFlippedCard = false;
 }
 
 //clear Dom
@@ -201,9 +205,31 @@ function startGame(){
 function clearGame(){
   clearTable();
   rebuildDecks();
+  matches = 0;
+  mismatches = 0;
+  score = 0;
+  updateScore();
 }
 
 //When reach the end of the game
 function gameOver(){
-  
+  let msg = 'Fim de jogo!\n'
+  score = matches - mismatches
+
+  if(score > 0){
+    msg = `Ótimo!\n\nvocê tem ótima memória!\n`
+  }else if(score == 0){
+    msg = `Boa!\n\nVocê foi bem\nmas pode melhorar\n`
+  }else{
+    msg = `Boa tentativa!\n\nVamos continuar Treinando\n :)\n`
+  }
+  msg += `\n`
+  msg += `acertos:${matches}\n`
+  msg += `erros:${mismatches}\n`
+  msg += `\n`
+  msg += 'Vamos jogar novamente :)!'
+  alert(msg);
+
+  clearGame();
+  startGame();
 }
