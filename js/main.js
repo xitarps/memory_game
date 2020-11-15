@@ -111,7 +111,7 @@ function addFlipToCards(){
 
 //flip the card
 function flipCard(){
-  this.classList.toggle('flip');
+  this.classList.add('flip');
 }
 
 //build game
