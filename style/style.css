@@ -6,3 +6,60 @@
   margin: 0;
   box-sizing: border-box;
 }
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: thistle;
+}
+.container {
+  display: flex;
+  height: 100vh;
+  background-color: wheat;
+  flex-flow: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.messages{
+  font-size: 20px;
+  margin: 1em;
+}
+.memory-game {
+  display: flex;
+  background-color: turquoise;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.card {
+  display: flex;
+  justify-content: space-around;
+  background-color: tomato;
+}
+.card img {
+  width: 10vw;
+  height: 10vw;
+}
+
+
+@media only screen and (min-width: 600px){
+  .memory-game {
+    width: 70vw;
+  }
+
+  .card {
+    width: 14vw;
+    height: 14vw;
+    margin: 10px;
+  }
+}
+
+@media only screen and (max-width: 600px){
+  .memory-game {
+    width: 90vw;
+  }
+
+  .card {
+    width: 22vw;
+    height: 20vw;
+    margin: 10px;
+  }
+}
