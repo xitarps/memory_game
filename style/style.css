@@ -28,17 +28,37 @@ body {
   background-color: turquoise;
   flex-wrap: wrap;
   justify-content: center;
+  perspective: 1000px;
 }
 .card {
   display: flex;
   justify-content: space-around;
   background-color: tomato;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform 0.9s;
+}
+.card-front,
+.card-back {
+  position: absolute;
+  backface-visibility: hidden;
+  
+}
+.card:active {
+  transform: scale(0.97);
+  transition: transform 0.3s;
 }
 .card img {
-  width: 10vw;
-  height: 10vw;
 }
-
+.card-front {
+  transform: rotateY(180deg);
+}
+.card.flip {
+  transform: rotateY(180deg);
+}
 
 @media only screen and (min-width: 600px){
   .memory-game {
@@ -49,6 +69,10 @@ body {
     width: 14vw;
     height: 14vw;
     margin: 10px;
+  }
+  .card img {
+    width: 14vw;
+    height: 14vw;
   }
 }
 
@@ -61,5 +85,9 @@ body {
     width: 22vw;
     height: 20vw;
     margin: 10px;
+  }
+  .card img {
+    width: 20vw;
+    height: 20vw;
   }
 }

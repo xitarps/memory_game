@@ -9,7 +9,7 @@ const $ = selector => document.querySelector(selector);
 
 let gameCards = [];
 
-
+let domCards;
 
 
 
@@ -74,7 +74,7 @@ function generateCard(cardname,back='box'){
   imgBack.classList.add("card-back")
 
   imgFront.alt = "face da carta"
-  imgBack.alt = "card-back"
+  imgBack.alt = "back da carta"
 
   imgFront.src = `${path}${cardname}${type}`
   imgBack.src = `${path}${back}${type}`
@@ -97,10 +97,29 @@ function clearTable(){
   $('.memory-game').innerHTML = ''
 }
 
+//get cards from DOM
+function getDomCards(){
+  domCards = document.querySelectorAll('.card')
+}
+
+//add flip function to each card at the DOM
+function addFlipToCards(){
+  domCards.forEach(domCard => {
+    domCard.addEventListener('click', flipCard);
+  });
+}
+
+//flip the card
+function flipCard(){
+  this.classList.toggle('flip');
+}
+
 //build game
 function startGame(){
   distributeCards(cards1,cards2);
   appendCards();
+  getDomCards();
+  addFlipToCards();
 }
 
 //destroy game
