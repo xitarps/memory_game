@@ -1,3 +1,4 @@
+const path = './assets/'
 const type = '.png';
 const cardBase = ['bowser','luigi','mario','peach','toad','yoshi'];
 let cards1 = [...cardBase];
@@ -8,10 +9,19 @@ const $ = selector => document.querySelector(selector);
 
 let gameCards = [];
 
-window.onload = ()=>{
 
+
+
+
+//   ====   Game   ====
+window.onload = ()=>{
+  startGame();
 }
 
+
+
+
+//shuffle array
 function shuffle(array) {
   for (let i = array.length - 1; i > 0; i--) {
     let j = Math.floor(Math.random() * (i + 1));
@@ -22,6 +32,7 @@ function shuffle(array) {
   }
 }
 
+//shuffle and build game deck
 function distributeCards(deck1,deck2){
 
   while(deck1.length > 0 || deck2.length > 0){
@@ -41,9 +52,9 @@ function distributeCards(deck1,deck2){
 
     }
   }
-  console.log(gameCards)
 }
 
+//Add deck to DOM
 function appendCards(){
     gameCards = gameCards.filter((card)=>card!=undefined)
     gameCards.forEach(card => {
@@ -51,6 +62,7 @@ function appendCards(){
     });
 }
 
+//Append single card to DOM
 function generateCard(cardname,back='box'){
   let div = document.createElement('div');
   div.classList.add('card');
@@ -64,8 +76,8 @@ function generateCard(cardname,back='box'){
   imgFront.alt = "face da carta"
   imgBack.alt = "card-back"
 
-  imgFront.src = `./assets/${cardname}${type}`
-  imgBack.src = `./assets/${back}${type}`
+  imgFront.src = `${path}${cardname}${type}`
+  imgBack.src = `${path}${back}${type}`
 
   div.appendChild(imgFront)
   div.appendChild(imgBack)
@@ -73,22 +85,26 @@ function generateCard(cardname,back='box'){
   $('.memory-game').appendChild(div)
 }
 
+//reset decks
 function rebuildDecks(){
   gameCards = []
   cards1 = [...cardBase];
   cards2 = [...cardBase];
 }
 
+//clear Dom
 function clearTable(){
   $('.memory-game').innerHTML = ''
 }
 
+//build game
 function startGame(){
   distributeCards(cards1,cards2);
   appendCards();
 }
 
-function resetGame(){
+//destroy game
+function clearGame(){
   clearTable();
   rebuildDecks();
 }
