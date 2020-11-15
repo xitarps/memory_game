@@ -8,24 +8,24 @@
 }
 body {
   width: 100vw;
-  height: 100vh;
-  background-color: thistle;
+  background-color: rgb(129, 154, 255);
 }
 .container {
   display: flex;
-  height: 100vh;
-  background-color: wheat;
+  height: 98vh;
   flex-flow: column;
   justify-content: space-evenly;
   align-items: center;
 }
 .messages{
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
-  margin: 1em;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  text-shadow: 1px 1px 2px black;
 }
 .memory-game {
   display: flex;
-  background-color: turquoise;
   flex-wrap: wrap;
   justify-content: center;
   perspective: 1000px;
@@ -33,7 +33,6 @@ body {
 .card {
   display: flex;
   justify-content: space-around;
-  background-color: tomato;
   justify-content: center;
   align-items: center;
   cursor: pointer;
