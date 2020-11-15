@@ -19,7 +19,8 @@ let matches = 0;
 let mismatches = 0;
 let score = 0;
 
-
+//https://freesound.org/people/InspectorJ/sounds/416179/
+let flipSound =document.getElementById("flipSound");
 
 //   ====   Game   ====
 window.onload = ()=>{
@@ -141,6 +142,8 @@ function resetFlipAction(){
 //flip the card
 function flipCard(){
   this.classList.add('flip');
+  flipSound.currentTime = 0;
+  flipSound.play();
   if(!hasFlippedCard){
     hasFlippedCard = true;
     firstCard = this;
@@ -176,7 +179,7 @@ function checkIfMatch(){
   }
 
   hasFlippedCard = false;
-  
+
   if(domCards <=0)gameOver();
 }
 
@@ -189,6 +192,10 @@ function updateScore(){
 function unFlipCards(){
   firstCard.classList.remove('flip');
   secondCard.classList.remove('flip')
+
+  flipSound.currentTime = 0;
+  flipSound.play();
+
   firstCard = null;
   secondCard = null;
 }
